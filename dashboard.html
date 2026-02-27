@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPro Portal — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <div class="brand-name">FinPro Portal</div>
+          <div class="brand-sub">Dashboard</div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div id="userEmail" class="pill"></div>
+        <button id="logout" class="btn btn-outline" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="dash-title">KPI Snapshot</h1>
+
+      <div class="cards3">
+        <div class="card">
+          <div class="kpi-label">Cash Balance</div>
+          <div class="kpi-value">$36,920</div>
+          <div class="muted tiny">Updated today</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">AR Outstanding</div>
+          <div class="kpi-value">$18,600</div>
+          <div class="muted tiny">12 invoices</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">AP Due (7d)</div>
+          <div class="kpi-value">$9,450</div>
+          <div class="muted tiny">5 vendors</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Notes</h2>
+        <ul class="list">
+          <li>Review month-end close checklist.</li>
+          <li>Confirm revenue recognition for new contracts.</li>
+          <li>Send variance report to management.</li>
+        </ul>
+      </div>
+
+      <p class="tiny muted">This is a front-end demo dashboard.</p>
+    </main>
+
+    <footer class="footer">
+      © <span id="year2"></span> FinPro Portal
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html><div class="card">
+  <h2>Quick Reports</h2>
+  <ul class="list">
+    <li>Profit & Loss (Monthly)</li>
+    <li>Cash Flow Summary</li>
+    <li>AR Aging</li>
+    <li>AP Aging</li>
+  </ul>
+</div>

@@ -3,16 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello GitHub</title>
+  <title>FinPro Portal — Login</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="card">
-    <h1>Hello, GitHub 👋</h1>
-    <p id="line">This is my first VS Code + GitHub project.</p>
-    <button id="btn">Click me</button>
-    <p id="msg" class="msg"></p>
-  </main>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <div class="brand-name">FinPro Portal</div>
+          <div class="brand-sub">Finance professionals workspace</div>
+        </div>
+      </div>
+      <div class="tag">Secure Access</div>
+    </header>
+
+    <main class="grid">
+      <section class="hero card">
+        <h1>Track. Analyze. Report.</h1>
+        <p class="muted">
+          A clean portal for accountants, analysts, and finance teams — dashboards, KPI snapshots, and reports.
+        </p>
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kpi-label">Revenue (MTD)</div>
+            <div class="kpi-value">$128,450</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Expenses (MTD)</div>
+            <div class="kpi-value">$74,210</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Net (MTD)</div>
+            <div class="kpi-value good">$54,240</div>
+          </div>
+        </div>
+
+        <p class="tiny muted">Demo UI only — no real authentication yet.</p>
+      </section>
+
+      <section class="card auth">
+        <h2>Sign in</h2>
+        <p class="muted">Use your work email to access your dashboard.</p>
+
+        <form id="loginForm" class="form">
+          <label>
+            Email
+            <input id="email" type="email" placeholder="name@company.com" autocomplete="email" required />
+          </label>
+
+          <label>
+            Password
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+          </label>
+
+          <button class="btn" type="submit">Login</button>
+
+          <div id="error" class="error" aria-live="polite"></div>
+
+          <div class="help">
+            <a href="#" id="forgot">Forgot password?</a>
+            <span>•</span>
+            <a href="#" id="create">Create account</a>
+          </div>
+        </form>
+
+        <div class="demo">
+          <div class="demo-title">Demo credentials</div>
+          <div class="demo-line"><b>Email:</b> demo@finpro.com</div>
+          <div class="demo-line"><b>Password:</b> FinPro123</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      © <span id="year"></span> FinPro Portal • Built by CodeManiach-22
+    </footer>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
+<label class="row">
+  <input type="checkbox" id="showPass" />
+  <span>Show password</span>
+</label>

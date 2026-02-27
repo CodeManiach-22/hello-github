@@ -144,3 +144,112 @@ input:focus{border-color: rgba(96,165,250,.6)}
   font-size:12px;
 }
 .row input{ width:auto; }
+.nav{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin: 0 14px;
+}
+
+.navlink{
+  color: var(--muted);
+  text-decoration:none;
+  font-size:13px;
+  padding:8px 10px;
+  border-radius:999px;
+  border:1px solid transparent;
+}
+
+.navlink:hover{
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.navlink.active{
+  color: var(--text);
+  border-color: var(--border);
+  background: rgba(11,18,32,.25);
+}
+
+.toolbar{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  margin: 12px 0;
+  flex-wrap:wrap;
+}
+
+.search{
+  flex: 1;
+  min-width: 220px;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(11,18,32,.45);
+  color: var(--text);
+  outline:none;
+}
+
+.tableWrap{ overflow:auto; }
+.table{
+  width:100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.table th, .table td{
+  text-align:left;
+  padding:10px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.table th{ color: var(--muted); font-weight: 700; }
+.table td .miniBtn{
+  padding:6px 10px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  cursor:pointer;
+  font-size:12px;
+}
+
+.form2{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-top:12px;
+}
+@media (max-width: 900px){
+  .form2{ grid-template-columns:1fr; }
+}
+
+select{
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background: rgba(11,18,32,.45);
+  color: var(--text);
+  outline:none;
+}
+
+.cards2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+@media (max-width: 900px){
+  .cards2{ grid-template-columns:1fr; }
+}
+
+.rows{ display:grid; gap:10px; margin-top:10px; }
+.rowLine{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background: rgba(11,18,32,.25);
+}

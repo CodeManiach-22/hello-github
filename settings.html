@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPro Portal — Settings</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <div class="brand-name">FinPro Portal</div>
+          <div class="brand-sub">Settings</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="navlink" href="dashboard.html">Dashboard</a>
+        <a class="navlink" href="transactions.html">Transactions</a>
+        <a class="navlink" href="reports.html">Reports</a>
+        <a class="navlink active" href="settings.html">Settings</a>
+      </nav>
+
+      <div class="right">
+        <div id="userEmail" class="pill"></div>
+        <button id="logout" class="btn btn-outline" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="dash-title">Settings</h1>
+
+      <div class="card">
+        <h2>Display</h2>
+        <button class="btn" id="toggleTheme" type="button">Toggle Theme</button>
+        <p class="tiny muted">Theme preference is saved in your browser.</p>
+      </div>
+
+      <div class="card">
+        <h2>Data</h2>
+        <button class="btn btn-outline" id="resetData" type="button">Reset Transactions Data</button>
+        <p class="tiny muted">This clears demo transactions stored locally.</p>
+      </div>
+    </main>
+
+    <footer class="footer">© <span id="year2"></span> FinPro Portal</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

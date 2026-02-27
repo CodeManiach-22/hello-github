@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPro Portal — Transactions</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <div class="brand-name">FinPro Portal</div>
+          <div class="brand-sub">Transactions</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="navlink" href="dashboard.html">Dashboard</a>
+        <a class="navlink active" href="transactions.html">Transactions</a>
+        <a class="navlink" href="reports.html">Reports</a>
+        <a class="navlink" href="settings.html">Settings</a>
+      </nav>
+
+      <div class="right">
+        <div id="userEmail" class="pill"></div>
+        <button id="logout" class="btn btn-outline" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="dash-title">Transactions</h1>
+
+      <div class="cards3">
+        <div class="card">
+          <div class="kpi-label">Income (MTD)</div>
+          <div class="kpi-value good" id="incomeMTD">$0</div>
+          <div class="muted tiny">Calculated from table</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">Expenses (MTD)</div>
+          <div class="kpi-value" id="expenseMTD">$0</div>
+          <div class="muted tiny">Calculated from table</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">Net (MTD)</div>
+          <div class="kpi-value" id="netMTD">$0</div>
+          <div class="muted tiny">Income - Expenses</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <input id="search" class="search" type="text" placeholder="Search: vendor, category, note..." />
+        <button id="exportCsv" class="btn" type="button">Export CSV</button>
+      </div>
+
+      <div class="card">
+        <div class="tableWrap">
+          <table class="table" id="txTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Vendor/Client</th>
+                <th>Amount</th>
+                <th>Note</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="txBody"></tbody>
+          </table>
+        </div>
+        <p class="tiny muted">Tip: Add a transaction below. Data is stored in your browser.</p>
+      </div>
+
+      <div class="card">
+        <h2>Add transaction</h2>
+        <form id="txForm" class="form2">
+          <label>Date
+            <input id="txDate" type="date" required />
+          </label>
+
+          <label>Type
+            <select id="txType" required>
+              <option value="Income">Income</option>
+              <option value="Expense">Expense</option>
+            </select>
+          </label>
+
+          <label>Category
+            <input id="txCategory" type="text" placeholder="e.g. Sales, Rent, Fuel" required />
+          </label>
+
+          <label>Vendor/Client
+            <input id="txParty" type="text" placeholder="e.g. Safaricom, Client A" required />
+          </label>
+
+          <label>Amount
+            <input id="txAmount" type="number" step="0.01" min="0" placeholder="e.g. 1500" required />
+          </label>
+
+          <label>Note
+            <input id="txNote" type="text" placeholder="optional" />
+          </label>
+
+          <button class="btn" type="submit">Add</button>
+          <div id="txMsg" class="tiny muted"></div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="footer">© <span id="year2"></span> FinPro Portal</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinPro Portal — Reports</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <div class="brand-name">FinPro Portal</div>
+          <div class="brand-sub">Reports</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="navlink" href="dashboard.html">Dashboard</a>
+        <a class="navlink" href="transactions.html">Transactions</a>
+        <a class="navlink active" href="reports.html">Reports</a>
+        <a class="navlink" href="settings.html">Settings</a>
+      </nav>
+
+      <div class="right">
+        <div id="userEmail" class="pill"></div>
+        <button id="logout" class="btn btn-outline" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <h1 class="dash-title">Reports</h1>
+
+      <div class="cards3">
+        <div class="card">
+          <div class="kpi-label">Profit & Loss</div>
+          <div class="kpi-value" id="plNet">$0</div>
+          <div class="muted tiny">Net = Income - Expenses</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">Cash Flow</div>
+          <div class="kpi-value" id="cashFlow">$0</div>
+          <div class="muted tiny">Demo calculated from transactions</div>
+        </div>
+        <div class="card">
+          <div class="kpi-label">Run Rate (Monthly)</div>
+          <div class="kpi-value" id="runRate">$0</div>
+          <div class="muted tiny">Based on MTD net</div>
+        </div>
+      </div>
+
+      <div class="cards2">
+        <div class="card">
+          <h2>Profit & Loss (Summary)</h2>
+          <div class="rows">
+            <div class="rowLine"><span>Total Income</span><b id="plIncome">$0</b></div>
+            <div class="rowLine"><span>Total Expenses</span><b id="plExpense">$0</b></div>
+            <div class="rowLine"><span>Net</span><b id="plNet2">$0</b></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>AR/AP Snapshot</h2>
+          <ul class="list">
+            <li>AR Aging: 0–30, 31–60, 61–90 days (demo)</li>
+            <li>AP Aging: Due in 7d / 30d (demo)</li>
+            <li>Tip: connect to real data later (backend)</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tiny muted">Reports use your Transactions page data (stored in browser).</p>
+    </main>
+
+    <footer class="footer">© <span id="year2"></span> FinPro Portal</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

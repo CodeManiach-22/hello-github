@@ -89,4 +89,22 @@
 <label class="row">
   <input type="checkbox" id="showPass" />
   <span>Show password</span>
-</label>
+</label><hr class="sep" />
+
+<h2>Create account</h2>
+<p class="muted">Demo signup (stores accounts in this browser).</p>
+
+<form id="signupForm" class="form">
+  <label>
+    Email
+    <input id="suEmail" type="email" placeholder="you@example.com" required />
+  </label>
+
+  <label>
+    Password
+    <input id="suPassword" type="password" placeholder="Create a password" minlength="6" required />
+  </label>
+
+  <button class="btn" type="submit">Sign up</button>
+  <div id="suMsg" class="error" aria-live="polite"></div>
+</form>

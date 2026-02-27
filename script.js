@@ -50,21 +50,81 @@ if (y2) y2.textContent = new Date().getFullYear();
 // ===== LOGIN PAGE LOGIC (demo)
 const loginForm = document.getElementById("loginForm");
 if (loginForm) {
+ // ===== Simple account store (DEMO ONLY)
+function loadUsers() {
+  try { return JSON.parse(localStorage.getItem("finpro_users") || "{}"); }
+  catch { return {}; }
+}
+function saveUsers(users) {
+  localStorage.setItem("finpro_users", JSON.stringify(users));
+}
+
+// Very simple hash (DEMO ONLY). Not secure like a real backend.
+async function hash(text) {
+  const enc = new TextEncoder().encode(text);
+  const buf = await crypto.subtle.digest("SHA-256", enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+// ===== LOGIN PAGE
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
   const email = document.getElementById("email");
   const password = document.getElementById("password");
   const error = document.getElementById("error");
 
-  loginForm.addEventListener("submit", (e) => {
+  // SIGNUP
+  const signupForm = document.getElementById("signupForm");
+  const suEmail = document.getElementById("suEmail");
+  const suPassword = document.getElementById("suPassword");
+  const suMsg = document.getElementById("suMsg");
+
+  signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
+    suMsg.textContent = "";
+
+    const eVal = suEmail.value.trim().toLowerCase();
+    const pVal = suPassword.value;
+
+    if (pVal.length < 6) {
+      suMsg.textContent = "Password must be at least 6 characters.";
+      return;
+    }
+
+    const users = loadUsers();
+    if (users[eVal]) {
+      suMsg.textContent = "That email is already registered. Please log in.";
+      return;
+    }
+
+    users[eVal] = { passHash: await hash(pVal), createdAt: new Date().toISOString() };
+    saveUsers(users);
+
+    suMsg.style.color = "#34d399";
+    suMsg.textContent = "Account created! You can log in now.";
+    signupForm.reset();
+    setTimeout(() => { suMsg.textContent = ""; suMsg.style.color = ""; }, 1500);
+  });
+
+  // LOGIN
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    error.textContent = "";
 
     const eVal = email.value.trim().toLowerCase();
     const pVal = password.value;
 
-    // Demo credentials
-    const ok = (eVal === "demo@finpro.com" && pVal === "FinPro123");
+    const users = loadUsers();
+    const user = users[eVal];
 
-    if (!ok) {
-      error.textContent = "Invalid email or password (use the demo credentials).";
+    if (!user) {
+      error.textContent = "No account found. Please sign up first.";
+      return;
+    }
+
+    const pHash = await hash(pVal);
+    if (pHash !== user.passHash) {
+      error.textContent = "Wrong password.";
       return;
     }
 
@@ -72,18 +132,11 @@ if (loginForm) {
     window.location.href = "dashboard.html";
   });
 
-  document.getElementById("forgot").addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Demo only: password reset needs a real backend.");
-  });
-
-  document.getElementById("create").addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Demo only: sign-up needs a real backend.");
-  });
-
-  // Ensure demo transactions exist
-  loadTx();
+  // Make sure demo transactions exist (optional)
+  if (!localStorage.getItem("finpro_tx")) {
+    localStorage.setItem("finpro_tx", JSON.stringify([]));
+  }
+}
 }
 
 // ===== AUTH GUARD + header user email
